@@ -1,0 +1,6 @@
+{
+    "display_name": "lex yacc",
+    "language": "lexyacc",
+    "argv": ["python", "/home/uecstudent/uec-lexyacc/LexYaccKernel.py", "-f", "{connection_file}"],
+    "codemirror_mode": "c"
+}
