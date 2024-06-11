@@ -195,7 +195,7 @@ class LexYaccKernel(Kernel):
                 p.close()
             elif command == 'uecc':
                 try :
-                    shutil.copyfile('./a.out', './uecc')
+                    shutil.copy('./a.out', './uecc')
                 except Exception as e:
                     self._write_to_stderr("[UECC] Error: a.out not found")
                     return {'status': 'ok', 'execution_count': self.execution_count, 'payload': [],
