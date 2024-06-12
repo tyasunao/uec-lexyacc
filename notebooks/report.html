@@ -7759,7 +7759,7 @@ a.anchor-link {
 <h1 id="%E7%99%BA%E5%B1%95%E5%95%8F%E9%A1%8C1---%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90%EF%BC%88%E7%AC%AC3%E5%9B%9E%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%8B%E3%82%89%EF%BC%89">発展問題1 - コード生成（第3回の内容から）<a class="anchor-link" href="#%E7%99%BA%E5%B1%95%E5%95%8F%E9%A1%8C1---%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90%EF%BC%88%E7%AC%AC3%E5%9B%9E%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%8B%E3%82%89%EF%BC%89">¶</a></h1><p>第3回で，C言語とx64アセンブラに出力するコンパイラを作成しました．それを参考にして，他のプログラミング言語に出力するコンパイラを作成してください．どんなプログラミング言語に出力するかと，必要に応じて実行モデルについてどうしたか（翻訳するときにどう決めたか）をMarkdownにまとめて書いて，コードには適宜コメントを入れてください．</p>
 <ul>
 <li>自分の知っているどんな言語でもいいです．<ul>
-<li>言語処理系論で出てきた WebAssemblyについて自分で調べてみて出力できると，おもしろいかもしれない（その場合は呼び出すJavaScriptも追加してほしい）．</li>
+<li>言語処理系論で出てきた WebAssemblyについて自分で調べてみて出力できると，おもしろいかもしれない（その場合は呼び出すJavaScriptも書いてほしい）．</li>
 </ul>
 </li>
 </ul>
@@ -7906,6 +7906,86 @@ a.anchor-link {
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=13c91d56-d17f-429d-8de9-ec820c43de36">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-lex yacc"><pre><span></span>/* a.out */
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1a16b6e-5ed7-42cc-99ae-3def622a7641">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="%E7%99%BA%E5%B1%95%E5%95%8F%E9%A1%8C3---%E6%9C%80%E9%81%A9%E5%8C%96">発展問題3 - 最適化<a class="anchor-link" href="#%E7%99%BA%E5%B1%95%E5%95%8F%E9%A1%8C3---%E6%9C%80%E9%81%A9%E5%8C%96">¶</a></h1><p>授業資料で作成したコンパイラは，抽象構文木を作成しただけでした．
+抽象構文木の構造をいじってやれば，コンパイラに最適化を実装できます．この課題では，自由に考えて（調べて）自分が作成したコンパイラになんらかの最適化手法を取り入れてください．</p>
+<ul>
+<li>ここまでの問題のどのバージョンのコンパイラでもよいです．<ul>
+<li>最適化の効果が見やすいので，C言語にコード生成してくれるとありがたい．</li>
+</ul>
+</li>
+<li>たとえば，<ul>
+<li>別々の式になっていた足し算を1つにマージするとか（実際問題として実行速度が上がるわけではないが，抽象構文木の形を変える練習として）</li>
+<li><a href="https://ja.wikipedia.org/wiki/%E9%9D%99%E7%9A%84%E5%8D%98%E4%B8%80%E4%BB%A3%E5%85%A5">SSA</a> 形式に変換してみるとか</li>
+<li>ループ最適化とか</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5204e3eb-7a98-4acc-bf42-97b7e0689e6d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-lex yacc"><pre><span></span>/* lex f6.lex */
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=59d5932e-64e2-4489-8b7e-f9298886f794">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-lex yacc"><pre><span></span>/* yacc f6.yacc */
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0418fa85-ffb6-46d5-a3e7-9115b4f77aff">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-lex yacc"><pre><span></span>/* c f6.c */
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=86f5afea-6fd7-42b0-af07-94f71501893c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
