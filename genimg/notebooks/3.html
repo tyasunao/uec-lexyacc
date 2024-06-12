@@ -8065,13 +8065,13 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90---%E3%82%A2%E3%82%BB%E3%83%B3%E3%83%96%E3%83%A9%E3%81%B8%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB">コード生成 - アセンブラへのコンパイル<a class="anchor-link" href="#%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90---%E3%82%A2%E3%82%BB%E3%83%B3%E3%83%96%E3%83%A9%E3%81%B8%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB">¶</a></h2><p>次に，アセンブラへのコンパイルを考えてみましょう．
-ここでは，<strong>x64アセンブラ</strong>への出力を考えます．
-アセンブラ全般については，もしかしたら，計算機通論の<strong>MIPSアセンブラ</strong>を習っているかもしれないので，それを思い出してください．</p>
+<h2 id="%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90---%E3%82%A2%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AA%E8%A8%80%E8%AA%9E%E3%81%B8%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB">コード生成 - アセンブリ言語へのコンパイル<a class="anchor-link" href="#%E3%82%B3%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90---%E3%82%A2%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AA%E8%A8%80%E8%AA%9E%E3%81%B8%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB">¶</a></h2><p>次に，アセンブリ言語へのコンパイルを考えてみましょう．
+ここでは，<strong>x64アセンブリ言語</strong>への出力を考えます．
+アセンブリ言語全般については，もしかしたら，計算機通論の<strong>MIPSアセンブリ言語</strong>を習っているかもしれないので，それを思い出してください．</p>
 <p>C言語よりも低級な言語であるので，実行形式を考えつつ，コンパイル（要するにコードの出力）をしないといけません．
-x64アセンブラは<strong>レジスタマシン</strong>なので，先のC言語のように1対1で出力するというわけにはいきません．</p>
-<p>この実験では x64 のアセンブラの理解が主眼ではないので，実験に必要なところだけ，以下にまとめました．
-以下の「x64アセンブラの説明」を広げて読んでください．</p>
+x64アセンブリ言語は<strong>レジスタマシン</strong>なので，先のC言語のように1対1で出力するというわけにはいきません．</p>
+<p>この実験では x64 のアセンブリ言語の理解が主眼ではないので，実験に必要なところだけ，以下にまとめました．
+以下の「x64アセンブリ言語の説明」を広げて読んでください．</p>
 <p>さらなる詳細を知りたい場合には，自分で調べてみてください．</p>
 </div>
 </div>
@@ -8085,7 +8085,7 @@ x64アセンブラは<strong>レジスタマシン</strong>なので，先のC�
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <details>
 <summary>
-x64アセンブラの説明
+x64アセンブリ言語の説明
 </summary>
 <hr/>
 <p>x64アーキテクチャ（x86_64，amd64とも言う）は，Intel 80386からはじまる IA32（32ビットアーキテクチャ）を64ビットに拡張したものです（IA64という64ビットのアーキテクチャもあるが，それは別ものなので注意）．</p>
@@ -8595,7 +8595,7 @@ int main() {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>emit_asm()</code>では，アセンブラに必要なおきまりのコードを出力し，プログラム本体のコードを生成する<code>_emit_asm()</code>を呼び出します．
+<p><code>emit_asm()</code>では，アセンブリ言語に必要なおきまりのコードを出力し，プログラム本体のコードを生成する<code>_emit_asm()</code>を呼び出します．
 今の言語には，<code>read</code>文と<code>print</code>文で入出力を扱いますが，これはCの標準ライブラリにある<code>scanf()</code>と<code>printf()</code>を使います．これらの関数は，引数として浮動小数点数を受けとる可能性があるため，これらの関数を呼び出すときには <code>rax</code> に <code>0</code> を設定しておく必要があります．</p>
 <p>ラベル <code>.Lprompt</code>は，<code>printf()</code>で，<code>.Lread</code>は<code>scanf()</code>で，<code>.Lprint</code>は <code>printf()</code>でそれぞれ使うための制御文字列「<code>"&gt; "</code>」，「<code>"%ld"</code>」「<code>"%ld\n"</code>」を入れた場所（アドレス）を参照するためのラベルです（符号付き64ビット長の値を読み書きするので，<code>%ld</code>）．ディレクティブ「<code>.string 文字列</code>」は，メモリを「文字列」で初期化するためです（Cと同様「文字列」はnull終端される）．</p>
 </div>
@@ -8608,7 +8608,7 @@ int main() {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>_emit_asm()</code>の処理も出力する言語がCからアセンブラになっているだけで，<code>_emit_c()</code>と同様です．
+<p><code>_emit_asm()</code>の処理も出力する言語がCからアセンブリ言語になっているだけで，<code>_emit_c()</code>と同様です．
 出力するときに，実行時の途中結果を渡すかは，勝手に決めればよいので，<strong>式の計算結果はスタックトップに置いてあるもの</strong>としています．</p>
 <ul>
 <li><p>T_ASSIGN : 右辺を計算するコードを生成し，（結果はスタックトップにあるので）スタックから変数の場所にポップします．</p>
@@ -8643,8 +8643,8 @@ int main() {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>それでは，実行してみましょう．C言語へのコンパイラのときには，出力されたCのコードを手動でコンパイルしてみましょう，と説明しましたが，アセンブラを実行するときにはどうすれば良いか説明していませんでした．</p>
-<p>アセンブラのコードから，実行形式を作るには，<code>cc</code>コマンドを使います．</p>
+<p>それでは，実行してみましょう．C言語へのコンパイラのときには，出力されたCのコードを手動でコンパイルしてみましょう，と説明しましたが，アセンブリ言語を実行するときにはどうすれば良いか説明していませんでした．</p>
+<p>アセンブリ言語のコードから，実行形式を作るには，<code>cc</code>コマンドを使います．</p>
 <pre><code>% cc ファイル名.s
 </code></pre>
 <p><code>cc</code>コマンドは，</p>
@@ -8684,7 +8684,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>確認のためにアセンブラのコードを出力しています．このコードが <code>.uec.s</code> ファイルに保存されて，<code>cc</code>コマンドで <code>a.out</code> が作成されました．</p>
+<p>確認のためにアセンブリ言語のコードを出力しています．このコードが <code>.uec.s</code> ファイルに保存されて，<code>cc</code>コマンドで <code>a.out</code> が作成されました．</p>
 <p>1つ数字を読み込んで，その数に1を足すだけのプログラムですが，以下のように実行できます．</p>
 </div>
 </div>
@@ -8711,11 +8711,11 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>以上のように，C言語へコンパイルしていたのと同様に，アセンブラへもコンパイルできました．
+<p>以上のように，C言語へコンパイルしていたのと同様に，アセンブリ言語へもコンパイルできました．
 C言語のときと比べると，</p>
 <ul>
 <li>実行形式を考える必要がある（スタックの使い方など）</li>
-<li>アセンブラの決まりを意識する必要がある</li>
+<li>アセンブリ言語の決まりを意識する必要がある</li>
 </ul>
 <p>という点はありますが，コンパイラにおけるコード生成について理解できたものと思います．</p>
 </div>
@@ -8819,8 +8819,8 @@ C言語のときと比べると，</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%E5%95%8F%E9%A1%8C2">問題2<a class="anchor-link" href="#%E5%95%8F%E9%A1%8C2">¶</a></h2><p>アセンブラへのコンパイラで，<code>while</code>文に対応してください．
-いきなり実行すると難しいと思うので，簡単な例を使って，出てきたアセンブラのコードをちゃんと読んで想定しているようになっているか見てみるとよいと思います．</p>
+<h2 id="%E5%95%8F%E9%A1%8C2">問題2<a class="anchor-link" href="#%E5%95%8F%E9%A1%8C2">¶</a></h2><p>アセンブリ言語へのコンパイラで，<code>while</code>文に対応してください．
+いきなり実行すると難しいと思うので，簡単な例を使って，出てきたアセンブリ言語のコードをちゃんと読んで想定しているようになっているか見てみるとよいと思います．</p>
 <ul>
 <li><p>ヒント: ループの条件の飛び先を表わす<strong>ラベル</strong>を適宜付けていく
 つまり，</p>
@@ -8840,7 +8840,7 @@ C言語のときと比べると，</p>
 <p>というような定義を <code>emit_asm</code>内に追加しましょう．</p>
 </li>
 <li><p>ヒント: <code>cmp</code>命令は，<code>cmp src, dst</code> の形式で，<code>src - dst</code> の結果をコンディションコードレジスタに暗黙的に入れてくれます．
-「x64アセンブラの説明」をよく読むこと．</p>
+「x64アセンブリ言語の説明」をよく読むこと．</p>
 </li>
 <li><p>ヒント: <code>cmp</code>命令の直後で，<code>jge ラベル</code> のような命令でコンディションコードレジスタの結果からジャンプできます．</p>
 </li>
