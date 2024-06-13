@@ -6,8 +6,10 @@ LexとYaccの実行用Kernelと，授業資料のファイルが置いてあり�
 [Docker hub](https://hub.docker.com/repository/docker/tyasunao/uec-lexyacc/general) からpullして，以下のコマンドでローカルにJupyter Notebookが起動できます．
 
 ```bash
-% docker run -it --rm -p 8888:8888 uec-lexyacc jupyter notebook --NotebookApp.default_url=/lab/ --ip=0.0.0.0 --port=8888
+% % docker run -it -v [ipynbが置いてあるローカルのフォルダ名]:/home/uecstudent/files -p 8888:8888 tyasunao/uec-lexyacc:latest jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
 ```
+
+（ipynbはBinder用にコンテナ内にも置いてあるけれど，毎回ダウンロードして保存するのは忘れがちだし面倒なので，ローカルなフォルダをfilesとしてマウントしたほうがよい）
 
 Binderでも実行できます．
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tyasunao/uec-lexyacc/main)
