@@ -218,12 +218,13 @@ class LexYaccKernel(Kernel):
                             i = i + 1
                         else:
                             diff.append(line)
-                    '''
+                    if p.isalive():
+                        p.wait()
+
                     if p.exitstatus != 0:
                         self._write_to_stderr("[UECC] uecc exited with code {}".format(p.exitstatus))
                         return {'status': 'ok', 'execution_count': self.execution_count, 'payload': [],
                                 'user_expressions': {}}
-                    '''
                         
                     self._write_to_stdout('\n'.join(diff))
                     
