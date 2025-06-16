@@ -9208,7 +9208,7 @@ int dotree(Node* node) {
     case T_GT:
       return dotree(node-&gt;left) &gt; dotree(node-&gt;right);
     case T_PP:
-      int v = stab[(int)(dotree(node-&gt;left))].val;
+      int v = stab[(int)(node-&gt;left)].val;
       stab[(int)(node-&gt;left)].val = v + 1;
       return v;
   }
@@ -9327,8 +9327,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C">練習問題<a class="anchor-link" href="#%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C">¶</a></h1><p>成績の評価時に考慮します．</p>
-<p>必須ではないですが，後からの提出は認めないので，授業時間内+α（13:00〜19:00）の間に提出してください．</p>
+<h1 id="%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C">練習問題<a class="anchor-link" href="#%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C">¶</a></h1><p>提出は任意です．</p>
 <p>順番にやる必要はなく，できるものから取り組んでください．</p>
 <h2 id="%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95">提出方法<a class="anchor-link" href="#%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95">¶</a></h2><p>以下の問題について，この2.ipynbファイルを編集し，完成した自分が編集した .ipynb ファイルをGoogle Classroomの該当課題に提出してください．（もしこのノートブックをファイルに保存したいときには，メニューの「file」→「Download」で .ipynb ファイルをダウンロード出来るので，それを提出してください．）</p>
 <ul>
